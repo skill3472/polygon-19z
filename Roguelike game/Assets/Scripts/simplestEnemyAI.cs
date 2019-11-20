@@ -33,9 +33,7 @@ public class simplestEnemyAI : MonoBehaviour
 
         if(Vector3.Distance(transform.position, targetPlayer.position) > 2f)
         transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, step);
-        else if(Vector3.Distance(transform.position, targetPlayer.position) < 2f)
+        else if(Vector3.Distance(transform.position, targetPlayer.position) < 1.8f)
         transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, -step);
-        else
-        transform.position = transform.position;
     }
 }

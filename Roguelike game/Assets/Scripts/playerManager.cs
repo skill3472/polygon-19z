@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class playerManager : MonoBehaviour
 {
-
 	private float horizontalAxis;
 	private float verticalAxis;
 	[HideInInspector]public bool isMoving;
