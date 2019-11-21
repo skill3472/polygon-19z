@@ -208,6 +208,7 @@ MonoBehaviour:
   targetPlayer: {fileID: 29526482}
   rotationSpeed: 10
   movementSpeed: 5
+  safePlayerDistance: 5
   rb: {fileID: 332156151}
 --- !u!212 &332156153
 SpriteRenderer:
