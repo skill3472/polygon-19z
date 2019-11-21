@@ -6,13 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class playerManager : MonoBehaviour
 {
-    private bool isMeele;
+    private bool isMeele = true;
 	private float horizontalAxis;
 	private float verticalAxis;
 	[HideInInspector]public bool isMoving;
+    [SerializeField]private Animator anim;
 	[Header("Movement Settings")]
 	[SerializeField]private float movementSpeed;
 	[SerializeField]private Rigidbody2D rb;
+    [SerializeField]private GameObject weaponSlot;
 
 
     void Start()
@@ -38,7 +40,7 @@ public class playerManager : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1") && isMeele)
         {
-            //Meele attacks
+            anim.SetTrigger("attacc");
         }
         else if(Input.GetButtonDown("Fire1") && !isMeele)
         {
