@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class playerManager : MonoBehaviour
 {
+    private bool isMeele;
 	private float horizontalAxis;
 	private float verticalAxis;
 	[HideInInspector]public bool isMoving;
@@ -22,6 +23,7 @@ public class playerManager : MonoBehaviour
     void Update()
     {
         Move();
+        Attack();
     }
 
     void Move()
@@ -31,4 +33,16 @@ public class playerManager : MonoBehaviour
 
     	rb.velocity = new Vector2(horizontalAxis * movementSpeed, verticalAxis * movementSpeed);
 	}
+
+    void Attack()
+    {
+        if(Input.GetButtonDown("Fire1") && isMeele)
+        {
+            //Meele attacks
+        }
+        else if(Input.GetButtonDown("Fire1") && !isMeele)
+        {
+            //Ranged attacks
+        }
+    }
 }
