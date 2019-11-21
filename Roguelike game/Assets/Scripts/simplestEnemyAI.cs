@@ -7,11 +7,16 @@ public class simplestEnemyAI : MonoBehaviour
 {
 
 	[Header("AI Settings")]
-	[SerializeField]private Transform targetPlayer;
-	[SerializeField]private float rotationSpeed;
-	[SerializeField]private float movementSpeed;
-    [SerializeField][Range(0f,10f)]private float safePlayerDistance;
-	[SerializeField]private Rigidbody2D rb;
+	[SerializeField][Tooltip("Player GameObject that the AI will try to attack")]
+    private Transform targetPlayer;
+	[SerializeField][Tooltip("How fast the AI will rotate?")]
+    private float rotationSpeed;
+	[SerializeField][Tooltip("How fast will the AI walk?")]
+    private float movementSpeed;
+    [SerializeField][Range(0f,10f)][Tooltip("How far from the player will the AI stop walking and start shooting?")]
+    private float safePlayerDistance;
+	[SerializeField][Tooltip("The AI's Rigidbody2D component")]
+    private Rigidbody2D rb;
     
     void Start()
     {
