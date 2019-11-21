@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 332156150}
   m_Layer: 0
   m_Name: Simplest Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -423,47 +423,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8329725178041199715, guid: 4f9ddaa884bebd545a24a94defa69a59,
+    - target: {fileID: -5307959776868363604, guid: 4f9ddaa884bebd545a24a94defa69a59,
         type: 3}
-      propertyPath: m_Offset.y
-      value: -0.00025638565
-      objectReference: {fileID: 0}
-    - target: {fileID: 8329725178041199715, guid: 4f9ddaa884bebd545a24a94defa69a59,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.14111978
-      objectReference: {fileID: 0}
-    - target: {fileID: 8329725178041199715, guid: 4f9ddaa884bebd545a24a94defa69a59,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0005130321
-      objectReference: {fileID: 0}
-    - target: {fileID: 8329725178041199715, guid: 4f9ddaa884bebd545a24a94defa69a59,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.14169914
+      propertyPath: dashForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -5307959776868363604, guid: 4f9ddaa884bebd545a24a94defa69a59,
         type: 3}
-      propertyPath: weaponSlot
+      propertyPath: cam
       value: 
-      objectReference: {fileID: 3357760665391733861}
-    - target: {fileID: -5307959776868363604, guid: 4f9ddaa884bebd545a24a94defa69a59,
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 4028909772485027918, guid: 4f9ddaa884bebd545a24a94defa69a59,
         type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 3357760665391733862}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028909772485027918, guid: 4f9ddaa884bebd545a24a94defa69a59,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f9ddaa884bebd545a24a94defa69a59, type: 3}
---- !u!1 &3357760665391733861 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5959542518646868769, guid: 4f9ddaa884bebd545a24a94defa69a59,
-    type: 3}
-  m_PrefabInstance: {fileID: 3357760665391733860}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3357760665391733862 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1688126861703711398, guid: 4f9ddaa884bebd545a24a94defa69a59,
-    type: 3}
-  m_PrefabInstance: {fileID: 3357760665391733860}
-  m_PrefabAsset: {fileID: 0}
