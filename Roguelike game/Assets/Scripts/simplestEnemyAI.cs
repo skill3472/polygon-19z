@@ -10,6 +10,7 @@ public class simplestEnemyAI : MonoBehaviour
 	[SerializeField]private Transform targetPlayer;
 	[SerializeField]private float rotationSpeed;
 	[SerializeField]private float movementSpeed;
+    [SerializeField][Range(0f,10f)]private float safePlayerDistance;
 	[SerializeField]private Rigidbody2D rb;
     
     void Start()
@@ -31,9 +32,9 @@ public class simplestEnemyAI : MonoBehaviour
 
  		float step = movementSpeed * Time.deltaTime;
 
-        if(Vector3.Distance(transform.position, targetPlayer.position) > 2f)
+        if(Vector3.Distance(transform.position, targetPlayer.position) > safePlayerDistance)
         transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, step);
-        else if(Vector3.Distance(transform.position, targetPlayer.position) < 1.8f)
+        else if(Vector3.Distance(transform.position, targetPlayer.position) < safePlayerDistance - 0.2f)
         transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, -step);
     }
 }
