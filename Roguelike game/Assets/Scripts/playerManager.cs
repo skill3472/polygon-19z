@@ -18,13 +18,6 @@ public class playerManager : MonoBehaviour
     [SerializeField]private float dashForce;
 	[SerializeField]private Rigidbody2D rb;
 
-
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Move();
@@ -50,13 +43,16 @@ public class playerManager : MonoBehaviour
 
     void Attack()
     {
-        if(Input.GetButtonDown("Fire1") && isMeele)
+        if(isMeele)
         {
+            if(Input.GetButtonDown("Fire1"))
             Dash(dashForce);
+            else if(Input.GetButtonDown("Fire3"))
+            BasicAttack();
         }
         else if(Input.GetButtonDown("Fire1") && !isMeele)
         {
-            //Ranged attacks
+            //Ranged attacks TODO
         }
     }
 
@@ -64,7 +60,11 @@ public class playerManager : MonoBehaviour
     {
         rb.AddForce(transform.right * force, ForceMode2D.Impulse);
         Debug.Log("Dashing with force: " + force.ToString());
-        
+    }
+
+    void BasicAttack()
+    {
+        //Basic attacks TODO
     }
 
     public void EnemyHit(GameObject enemy)
@@ -72,7 +72,7 @@ public class playerManager : MonoBehaviour
         if(enemy.CompareTag("Enemy"))
         {
             Debug.Log("Enemy was hit!");
-            //THERE SHOULD BE A REFERENCE TO THE ENEMY DAMAGE FUNCTION, BUT IT DOESNT EXIST YET (TO DO)
+            //THERE SHOULD BE A REFERENCE TO THE ENEMY DAMAGE FUNCTION, BUT IT DOESNT EXIST YET TODO
         }
     }
 }
