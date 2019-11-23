@@ -45,9 +45,9 @@ public class playerManager : MonoBehaviour
     {
         if(isMeele)
         {
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetButtonDown("Fire3"))
             Dash(dashForce);
-            else if(Input.GetButtonDown("Fire3"))
+            else if(Input.GetButtonDown("Fire1"))
             BasicAttack();
         }
         else if(Input.GetButtonDown("Fire1") && !isMeele)
