@@ -13,7 +13,7 @@ public class playerManager : MonoBehaviour
     [HideInInspector] public bool isMoving;
     //[SerializeField]private Animator anim;
     [SerializeField] private Camera cam;
-    private GameObject weaponSlot;
+    [HideInInspector] public GameObject weaponSlot;
     [SerializeField] private GameObject[] weaponList;
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed;

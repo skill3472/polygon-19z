@@ -91,14 +91,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824922722003048363}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -144,8 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   cam: {fileID: 0}
-  weaponSlot: {fileID: 0}
-  weaponList: []
+  weaponList:
+  - {fileID: 1823346912244315666, guid: 8142158358142ee47a5d611597e30b6c, type: 3}
+  - {fileID: 4289388930498920424, guid: 3c9e2220711f4274eb2d0a7fe8cb7adf, type: 3}
   movementSpeed: 10
-  dashForce: 0
-  rb: {fileID: 4028909772485027918}
