@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,50 +8,75 @@ using UnityEngine;
 public class playerManager : MonoBehaviour
 {
     private bool isMeele = true;
-	private float horizontalAxis;
-	private float verticalAxis;
-	[HideInInspector]public bool isMoving;
+    private float horizontalAxis;
+    private float verticalAxis;
+    [HideInInspector] public bool isMoving;
     //[SerializeField]private Animator anim;
-    [SerializeField]private Camera cam;
-    [SerializeField]private GameObject weaponSlot;
-	[Header("Movement Settings")]
-	[SerializeField]private float movementSpeed;
-    [SerializeField]private float dashForce;
-	[SerializeField]private Rigidbody2D rb;
+    [SerializeField] private Camera cam;
+    [SerializeField] private GameObject weaponSlot;
+    [SerializeField] private GameObject[] weaponList;
+    [Header("Movement Settings")]
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float dashForce;
+    [SerializeField] private Rigidbody2D rb;
 
     void Update()
     {
         Move();
         Attack();
         LookTowardsMouse();
+        WeaponSwitch();
+    }
+
+    void Start()
+    {
+        weaponSlot = Instantiate(weaponList[0], this.gameObject.transform);
+        weaponSlot.name = "0";
+    } 
+
+    void WeaponSwitch()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            int weaponIndex;
+            Int32.TryParse(weaponSlot.name, out weaponIndex);
+            weaponIndex++;
+            if (weaponIndex >= weaponList.Length || weaponIndex == -1)
+            {
+                weaponIndex = 0;
+            }
+            Destroy(weaponSlot);
+            weaponSlot = Instantiate(weaponList[weaponIndex], this.gameObject.transform);
+            weaponSlot.name = weaponIndex.ToString();
+        }
     }
 
     void Move()
     {
-    	horizontalAxis = Input.GetAxis("Horizontal");
-    	verticalAxis = Input.GetAxis("Vertical");
+        horizontalAxis = Input.GetAxis("Horizontal");
+        verticalAxis = Input.GetAxis("Vertical");
 
-    	rb.velocity = new Vector2(horizontalAxis * movementSpeed, verticalAxis * movementSpeed);
-	}
+        rb.velocity = new Vector2(horizontalAxis * movementSpeed, verticalAxis * movementSpeed);
+    }
 
     void LookTowardsMouse()
     {
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 perpendicular = Vector3.Cross(transform.position-mousePos,Vector3.forward);
+        Vector3 perpendicular = Vector3.Cross(transform.position - mousePos, Vector3.forward);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 
     void Attack()
     {
-        if(isMeele)
+        if (isMeele)
         {
-            if(Input.GetButtonDown("Fire3"))
-            Dash(dashForce);
-            else if(Input.GetButtonDown("Fire1"))
-            BasicAttack();
+            if (Input.GetButtonDown("Fire3"))
+                Dash(dashForce);
+            else if (Input.GetButtonDown("Fire1"))
+                BasicAttack();
         }
-        else if(Input.GetButtonDown("Fire1") && !isMeele)
+        else if (Input.GetButtonDown("Fire1") && !isMeele)
         {
             //Ranged attacks TODO
         }
@@ -69,7 +95,7 @@ public class playerManager : MonoBehaviour
 
     public void EnemyHit(GameObject enemy)
     {
-        if(enemy.CompareTag("Enemy"))
+        if (enemy.CompareTag("Enemy"))
         {
             Debug.Log("Enemy was hit!");
             //THERE SHOULD BE A REFERENCE TO THE ENEMY DAMAGE FUNCTION, BUT IT DOESNT EXIST YET TODO
