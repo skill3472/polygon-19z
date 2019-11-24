@@ -5,12 +5,12 @@ using UnityEngine;
 public class weaponCollisionManager : MonoBehaviour
 {
 
-	[SerializeField]private playerManager playerManager;
+	private playerManager playerManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject.Find("Player").TryGetComponent<playerManager>(out playerManager);
     }
 
     // Update is called once per frame

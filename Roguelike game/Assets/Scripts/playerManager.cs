@@ -13,12 +13,10 @@ public class playerManager : MonoBehaviour
     [HideInInspector] public bool isMoving;
     //[SerializeField]private Animator anim;
     [SerializeField] private Camera cam;
-    [SerializeField] private GameObject weaponSlot;
+    private GameObject weaponSlot;
     [SerializeField] private GameObject[] weaponList;
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed;
-    [SerializeField] private float dashForce;
-    [SerializeField] private Rigidbody2D rb;
 
     void Update()
     {
@@ -56,7 +54,7 @@ public class playerManager : MonoBehaviour
         horizontalAxis = Input.GetAxis("Horizontal");
         verticalAxis = Input.GetAxis("Vertical");
 
-        rb.velocity = new Vector2(horizontalAxis * movementSpeed, verticalAxis * movementSpeed);
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalAxis * movementSpeed, verticalAxis * movementSpeed);
     }
 
     void LookTowardsMouse()
@@ -69,29 +67,17 @@ public class playerManager : MonoBehaviour
 
     void Attack()
     {
-        if (isMeele)
-        {
+
             if (Input.GetButtonDown("Fire3"))
-                Dash(dashForce);
-            else if (Input.GetButtonDown("Fire1"))
-                BasicAttack();
-        }
-        else if (Input.GetButtonDown("Fire1") && !isMeele)
         {
-            //Ranged attacks TODO
+            weaponSlot.GetComponent<Attack>().Second();
+        }
+            else if (Input.GetButtonDown("Fire1"))
+        {
+            weaponSlot.GetComponent<Attack>().First();
         }
     }
 
-    void Dash(float force)
-    {
-        rb.AddForce(transform.right * force, ForceMode2D.Impulse);
-        Debug.Log("Dashing with force: " + force.ToString());
-    }
-
-    void BasicAttack()
-    {
-        //Basic attacks TODO
-    }
 
     public void EnemyHit(GameObject enemy)
     {
