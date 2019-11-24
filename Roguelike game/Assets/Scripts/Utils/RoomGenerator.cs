@@ -4,40 +4,52 @@ using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
 {
-    public GameObject[] possibleRooms;
-    public GameObject[] currentRooms;
+    public int[] possibleRooms = new int[8];
+    public GameObject[] currentRooms = new GameObject[8];
 
 
     // Start is called before the first frame update
     void Start()
     {
-        currentRooms[0] = null;
-        currentRooms[1] = null;
-        currentRooms[2] = null;
-        currentRooms[3] = null;
-        currentRooms[4] = null;
-        currentRooms[5] = null;
-        currentRooms[6] = null;
-        currentRooms[7] = null;
-        currentRooms[8] = null;
+        for (int i = 0; possibleRooms.Length > i ; i++)
+        {
+            possibleRooms[i] = Random.Range(0, 2);
+        }
 
-        currentRooms[4] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        int room1 = Random.Range(0, 1);
-        int room3 = Random.Range(0, 1);
-        int room5 = Random.Range(0, 1);
-        int room7 = Random.Range(0, 1);
-        if(room1 == 1) currentRooms[1] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        if(room3 == 1) currentRooms[3] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        if(room5 == 1) currentRooms[5] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        if(room7 == 1) currentRooms[7] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        int room0 = Random.Range(0, 1);
-        int room2 = Random.Range(0, 1);
-        int room6 = Random.Range(0, 1);
-        int room8 = Random.Range(0, 1);
-        if(room0 == 1 && room3 == 1 || room0 == 1 && room1 == 1) currentRooms[0] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        if(room2 == 1 && room1 == 1 || room2 == 1 && room5 == 1) currentRooms[2] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        if(room6 == 1 && room3 == 1 || room6 == 1 && room7 == 1) currentRooms[6] = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        if(room8 == 1 && room5 == 1 || room8 == 1 && room7 == 1) currentRooms[8] = possibleRooms[Random.Range(0, possibleRooms.Length)];
+        for (int i = 0; possibleRooms.Length > i; i++)
+        {
+            if (i == 4)
+            {
+
+            }
+             else if (i == 1 || i == 3 || i == 5 || i == 7)
+            {
+                if (possibleRooms[i] != 1)
+                {
+                    continue;
+                }
+            }
+            else
+            {
+                if (i == 0 && (possibleRooms[1] + possibleRooms[3] == 0))
+                {
+                    continue;
+                }
+                if (i == 2 && (possibleRooms[1] + possibleRooms[5] == 0))
+                {
+                    continue;
+                }
+                if (i == 6 && (possibleRooms[3] + possibleRooms[7] == 0))
+                {
+                    continue;
+                }
+                if (i == 8 && (possibleRooms[5] + possibleRooms[7] == 0))
+                {
+                    continue;
+                }
+            }
+            currentRooms[i] = new GameObject("room " + i);
+        }
     }
 
     // Update is called once per frame
