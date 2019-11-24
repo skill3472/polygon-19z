@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class roomGenerator : MonoBehaviour
+public class RoomGenerator : MonoBehaviour
 {
     public GameObject[] possibleRooms;
     public GameObject[] currentRooms;

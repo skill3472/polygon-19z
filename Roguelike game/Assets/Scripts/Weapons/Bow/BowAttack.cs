@@ -8,7 +8,7 @@ public class BowAttack : Attack
 
     public override void First()
     {
-        Transform weaponTransform = GameObject.Find("Player").GetComponent<playerManager>().weaponSlot.gameObject.transform;
+        Transform weaponTransform = GameObject.Find("Player").GetComponent<PlayerManager>().weaponSlot.gameObject.transform;
         GameObject arrow = Instantiate(projectile, weaponTransform.position, weaponTransform.rotation);
         Rigidbody2D arb = arrow.GetComponent<Rigidbody2D>();
         arb.AddForce(transform.right * 200, ForceMode2D.Force);

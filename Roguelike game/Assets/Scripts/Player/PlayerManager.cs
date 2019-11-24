@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class playerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     private bool isMeele = true;
     private float horizontalAxis;
