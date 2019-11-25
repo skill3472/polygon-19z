@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
 {
+    public GameObject topWall;
+    public GameObject rightWall;
+    public GameObject bottomWall;
+    public GameObject leftWall;
     public int[] possibleRooms = new int[8];
     public GameObject[] currentRooms = new GameObject[8];
 
@@ -18,9 +22,13 @@ public class RoomGenerator : MonoBehaviour
 
         for (int i = 0; possibleRooms.Length > i; i++)
         {
+            currentRooms[i] = new GameObject("room " + i);
             if (i == 4)
             {
-
+                Instantiate(topWall, currentRooms[i].transform);
+                Instantiate(rightWall, currentRooms[i].transform);
+                Instantiate(bottomWall, currentRooms[i].transform);
+                Instantiate(leftWall, currentRooms[i].transform);
             }
              else if (i == 1 || i == 3 || i == 5 || i == 7)
             {
@@ -49,7 +57,6 @@ public class RoomGenerator : MonoBehaviour
                 }
             }
 
-            currentRooms[i] = new GameObject("room " + i);
             currentRooms[i].transform.parent = this.transform;
 
 
