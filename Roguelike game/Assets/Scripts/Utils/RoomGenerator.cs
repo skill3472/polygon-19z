@@ -48,7 +48,11 @@ public class RoomGenerator : MonoBehaviour
                     continue;
                 }
             }
+
             currentRooms[i] = new GameObject("room " + i);
+            currentRooms[i].transform.parent = this.transform;
+
+
         }
     }
 

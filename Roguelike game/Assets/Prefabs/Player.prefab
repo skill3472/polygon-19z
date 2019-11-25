@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   cam: {fileID: 0}
+  weaponSlot: {fileID: 0}
   weaponList:
   - {fileID: 1823346912244315666, guid: 8142158358142ee47a5d611597e30b6c, type: 3}
   - {fileID: 4289388930498920424, guid: 3c9e2220711f4274eb2d0a7fe8cb7adf, type: 3}
