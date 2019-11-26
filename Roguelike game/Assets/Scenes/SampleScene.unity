@@ -385,12 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a82a2133cd836443b12d30c461d82a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topWall: {fileID: 8972370978562948757, guid: d583f91107bc5204b9c7f6f2ae8ec1ae, type: 3}
-  rightWall: {fileID: 1882786965146882571, guid: 0ee484febd71028488c92ee8d9d15a73,
+  topWall: {fileID: 8025062015495440475, guid: d583f91107bc5204b9c7f6f2ae8ec1ae, type: 3}
+  rightWall: {fileID: 24161254861455037, guid: 0ee484febd71028488c92ee8d9d15a73, type: 3}
+  bottomWall: {fileID: 7144677263489999552, guid: 709a62d4542d3784b9a0f686e75a334b,
     type: 3}
-  bottomWall: {fileID: 3033053200891121201, guid: 709a62d4542d3784b9a0f686e75a334b,
-    type: 3}
-  leftWall: {fileID: 7391814490362418273, guid: 64e651189e52cbf46ae3b425f9f7148d,
+  leftWall: {fileID: 7367116269506229426, guid: 64e651189e52cbf46ae3b425f9f7148d,
     type: 3}
   possibleRooms: 0000000000000000000000000000000000000000000000000000000000000000
   currentRooms:
