@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     {
         weaponSlot = Instantiate(weaponList[0], this.gameObject.transform);
         weaponSlot.name = "0";
-    } 
+    }
 
     void WeaponSwitch()
     {
@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour
     void Attack()
     {
 
-            if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3"))
         {
             weaponSlot.GetComponent<Attack>().Second();
         }
