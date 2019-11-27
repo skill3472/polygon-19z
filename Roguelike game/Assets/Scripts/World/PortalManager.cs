@@ -14,6 +14,7 @@ public class PortalManager : MonoBehaviour
         if (room1 == null || room2 == null)
         {
             this.GetComponent<SpriteRenderer>().sprite = closedPortal;
+            this.GetComponent<Collider2D>().isTrigger = false;
         } else
         {
             this.GetComponent<SpriteRenderer>().sprite = activePortal;
