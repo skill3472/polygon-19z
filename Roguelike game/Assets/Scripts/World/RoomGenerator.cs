@@ -241,6 +241,11 @@ public class RoomGenerator : MonoBehaviour
                 }
             }
         }
+        // Activate portal GameObjects
+        foreach (GameObject portal in GameObject.FindGameObjectsWithTag("Portal"))
+        {
+            portal.GetComponent<PortalManager>().ActivatePortal();
+        }
     }
     // Update is called once per frame
     void Update()

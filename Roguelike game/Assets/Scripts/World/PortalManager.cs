@@ -6,6 +6,19 @@ public class PortalManager : MonoBehaviour
 {
     public GameObject room1;
     public GameObject room2;
+    public Sprite activePortal;
+    public Sprite closedPortal;
+
+    public void ActivatePortal()
+    {
+        if (room1 == null || room2 == null)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = closedPortal;
+        } else
+        {
+            this.GetComponent<SpriteRenderer>().sprite = activePortal;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {   
