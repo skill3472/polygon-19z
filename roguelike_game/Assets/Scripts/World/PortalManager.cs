@@ -30,11 +30,15 @@ public class PortalManager : MonoBehaviour
             if (camera.transform.position.x.Equals(room1.transform.position.x) && camera.transform.position.y.Equals(room1.transform.position.y))
             {
                 camera.transform.position = Vector3.Lerp(camera.transform.position, new Vector3(room2.transform.position.x, room2.transform.position.y, camera.transform.position.z), 3f);
+                GameObject.Find("Player").transform.position = new Vector2(room2.transform.position.x, room2.transform.position.y);
             } else
             {
                 camera.transform.position = Vector3.Lerp(camera.transform.position, new Vector3(room1.transform.position.x, room1.transform.position.y, camera.transform.position.z), 3f);
+                GameObject.Find("Player").transform.position = new Vector2(room1.transform.position.x, room1.transform.position.y);
             }
             
+
+
         }
         
     }

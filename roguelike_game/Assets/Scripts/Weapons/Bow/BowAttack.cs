@@ -17,6 +17,11 @@ public class BowAttack : Attack
 
     public override void Second()
     {
-        throw new System.NotImplementedException();
+        Transform weaponTransform = GameObject.Find("Player").GetComponent<PlayerManager>().weaponSlot.gameObject.transform;
+        GameObject arrow = Instantiate(projectile, weaponTransform.position, weaponTransform.rotation);
+        arrow.transform.localScale += new Vector3(1f, 1f);
+        Rigidbody2D arb = arrow.GetComponent<Rigidbody2D>();
+        arb.AddForce(transform.right * 50, ForceMode2D.Force);
+        Destroy(arrow, 6);
     }
 }
