@@ -79,12 +79,12 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    public void EnemyHit(GameObject enemy)
+    public void EnemyHit(GameObject enemy, int damage)
     {
         if (enemy.CompareTag("Enemy"))
         {
             Debug.Log("Enemy was hit!");
-            //THERE SHOULD BE A REFERENCE TO THE ENEMY DAMAGE FUNCTION, BUT IT DOESNT EXIST YET TODO
+            enemy.GetComponent<EnemyManager>().TakeDamage(damage);
         }
     }
 }

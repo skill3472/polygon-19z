@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8305219239286891295}
   - component: {fileID: 8305219239286891292}
   - component: {fileID: 8305219239286891293}
+  - component: {fileID: 2055228739713500099}
   - component: {fileID: 8305219239286891282}
   - component: {fileID: 8305219239286891283}
   m_Layer: 0
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 13c194d9ed7b81d44a0665a092612a01, type: 3}
   m_Color: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +101,25 @@ MonoBehaviour:
   safePlayerDistance: 5
   detectionPlayerDistance: 7
   rb: {fileID: 8305219239286891282}
+--- !u!114 &2055228739713500099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305219239286891280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c28b920523d78e429fe89a406f1bde6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 3
+  enemyDamageOutput: 1
+  damageFlashDuration: 1
+  enemyNormalSprite: {fileID: 21300000, guid: 13c194d9ed7b81d44a0665a092612a01, type: 3}
+  enemyFlashingSprite: {fileID: 21300000, guid: 00bbf015f7564254f93811699428e01f,
+    type: 3}
+  damageFlashTimer: 0.5
 --- !u!50 &8305219239286891282
 Rigidbody2D:
   serializedVersion: 4
@@ -136,9 +156,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.116, y: 0.134}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

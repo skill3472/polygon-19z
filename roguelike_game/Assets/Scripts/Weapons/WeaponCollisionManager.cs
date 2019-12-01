@@ -20,7 +20,14 @@ public class WeaponCollisionManager : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col)
-    {
-        playerManager.EnemyHit(col.gameObject);
+    {   
+         
+        Attack attackScript = this.GetComponent<Attack>();
+        playerManager.EnemyHit(col.gameObject, attackScript.damage);
+        if (this.CompareTag("Projectile"))
+        {
+            gameObject.active = false;
+            Destroy(gameObject);
+        }
     }
 }
