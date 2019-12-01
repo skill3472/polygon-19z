@@ -13,11 +13,11 @@ public class PortalManager : MonoBehaviour
     {
         if (room1 == null || room2 == null)
         {
-            this.GetComponent<SpriteRenderer>().sprite = closedPortal;
+            this.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = closedPortal;
             this.GetComponent<Collider2D>().isTrigger = false;
         } else
         {
-            this.GetComponent<SpriteRenderer>().sprite = activePortal;
+            this.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = activePortal;
         }
     }
 
