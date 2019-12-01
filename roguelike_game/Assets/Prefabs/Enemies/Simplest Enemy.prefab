@@ -95,10 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6cecec71c1ebf43ae4ccbc919abaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlayer: {fileID: 0}
   rotationSpeed: 10
   movementSpeed: 5
   safePlayerDistance: 5
+  detectionPlayerDistance: 7
   rb: {fileID: 8305219239286891282}
 --- !u!50 &8305219239286891282
 Rigidbody2D:

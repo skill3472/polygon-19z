@@ -6,7 +6,7 @@ public class SpawnGridManager : MonoBehaviour
 {
     public GameObject[] enemyList;
     public GameObject[] itemList;
-    private int[,] grid = new int[12, 6];
+    private int[,] grid = new int[13, 7];
     // Start is called before the first frame update
     void Start()
     {
