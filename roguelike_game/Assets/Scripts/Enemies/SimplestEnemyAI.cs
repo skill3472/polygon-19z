@@ -34,11 +34,6 @@ public class SimplestEnemyAI : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-    	Vector3 vectorToTarget = targetPlayer.position - transform.position;
- 		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
- 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
- 		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-
  		float step = movementSpeed * Time.deltaTime;
 
         if(Vector3.Distance(transform.position, targetPlayer.position) > safePlayerDistance && detectionPlayerDistance > Vector3.Distance(transform.position, targetPlayer.position))
