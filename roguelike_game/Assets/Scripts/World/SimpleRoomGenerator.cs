@@ -7,15 +7,28 @@ public class SimpleRoomGenerator : MonoBehaviour
     public GameObject room;
     public int[] possibleRooms = new int[9];
     public GameObject[] currentRooms = new GameObject[9];
+    public int minRoomsNumber;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; possibleRooms.Length > i; i++)
+        if (minRoomsNumber == 0)
         {
-            possibleRooms[i] = Random.Range(0, 2);
+            minRoomsNumber = 9;
         }
+        int counter;
+        do {
+            counter = 0;
+            for (int i = 0; possibleRooms.Length > i; i++)
+            {
+                possibleRooms[i] = Random.Range(0, 2);
+                if (possibleRooms[i] == 1)
+                {
+                    counter++; 
+                }
+            }
+        } while (minRoomsNumber > counter);
 
         for (int i = 0; possibleRooms.Length > i; i++)
         {
@@ -42,6 +55,7 @@ public class SimpleRoomGenerator : MonoBehaviour
             }
 
             currentRooms[i] = Instantiate(room, this.transform);
+            currentRooms[i].name = "Room " + i;
 
             //position created room object in correct coords for camera focus
             if (i == 4)
@@ -73,9 +87,9 @@ public class SimpleRoomGenerator : MonoBehaviour
         // Portals room 4
         setupRoomPortals(4, 1, 5, 7, 3);
         // Portals room 0
-        setupRoomPortals(0, -1, 1, 2, -1);
+        setupRoomPortals(0, -1, 1, 3, -1);
         // Portals room 1
-        setupRoomPortals(1, -1, 0, 4, 2);
+        setupRoomPortals(1, -1, 2, 4, 0);
         // Portals room 2
         setupRoomPortals(2, -1, -1, 5, 1);
         // Portals room 3
@@ -83,7 +97,7 @@ public class SimpleRoomGenerator : MonoBehaviour
         // Portals room 5
         setupRoomPortals(5, 2, -1, 8, 4);
         // Portals room 6
-        setupRoomPortals(6, 3, 4, 6, -1);
+        setupRoomPortals(6, 3, 7, -1, -1);
         // Portals room 7
         setupRoomPortals(7, 4, 8, -1, 6);
         // Portals room 8
