@@ -22,6 +22,19 @@ public class SpawnGridManager : MonoBehaviour
                 grid[x, y] = 1;
             }
 
-        } 
+        }
+        // 0 to 10 urns
+        int numberOfUrns = Random.Range(0, 10);
+        for (int i = 1; i <= numberOfUrns; i++)
+        {
+            int x = Random.Range(0, 13);
+            int y = Random.Range(0, 7);
+            if (grid[x, y] == 0)
+            {
+                Instantiate(itemList[0], this.transform.GetChild(x).transform.GetChild(y));
+                grid[x, y] = 1;
+            }
+
+        }
     }
 }
