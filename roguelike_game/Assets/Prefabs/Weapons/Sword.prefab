@@ -138,3 +138,5 @@ MonoBehaviour:
   attackRate: 1
   malee: 1
   dashForce: 100
+  swordCollider: {fileID: 6734596651729497019}
+  attackTime: 0.3
