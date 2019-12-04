@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageType: pierce
-  attackRate: 1
+  attackRate: 0.3
   malee: 0
   projectile: {fileID: 4246119991336586511, guid: eb828e0e0b3430046b6fc8cd6480f654,
     type: 3}

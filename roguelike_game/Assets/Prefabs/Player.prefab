@@ -122,7 +122,7 @@ MonoBehaviour:
   weaponList:
   - {fileID: 1823346912244315666, guid: 8142158358142ee47a5d611597e30b6c, type: 3}
   - {fileID: 4289388930498920424, guid: 3c9e2220711f4274eb2d0a7fe8cb7adf, type: 3}
-  movementSpeed: 10
+  movementSpeed: 5
 --- !u!58 &5778821923554844068
 CircleCollider2D:
   m_ObjectHideFlags: 0
