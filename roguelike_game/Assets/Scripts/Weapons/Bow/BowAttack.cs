@@ -28,6 +28,7 @@ public class BowAttack : Attack
     public override void Second()
     {
         Transform weaponTransform = GameObject.Find("Player").GetComponent<PlayerManager>().weaponSlot.gameObject.transform;
+        GameObject.Find("Player").GetComponentInChildren<ChargingBar>().Progress(10);
         GameObject arrow = Instantiate(projectile, weaponTransform.position, weaponTransform.rotation);
         arrow.transform.localScale += new Vector3(1f, 1f);
         Rigidbody2D arb = arrow.GetComponent<Rigidbody2D>();
