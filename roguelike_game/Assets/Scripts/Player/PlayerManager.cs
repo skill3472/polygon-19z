@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
 
     void WeaponSwitch()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire3"))
         {
             int weaponIndex;
             Int32.TryParse(weaponSlot.name, out weaponIndex);
@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour
     void Attack()
     {
 
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire2"))
         {
             weaponSlot.GetComponent<Attack>().Second();
         }
