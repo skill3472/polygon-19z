@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField]private Sprite enemyNormalSprite;
     [SerializeField]private Sprite enemyFlashingSprite;
+    [SerializeField] private GameObject deathPrefarb;
 
     [SerializeField]private float damageFlashTimer;
 
@@ -35,6 +36,10 @@ public class EnemyManager : MonoBehaviour
     void EnemyDeath()
     {
         gameObject.SetActive(false);
+        if (deathPrefarb != null)
+        {
+            Instantiate(deathPrefarb, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
 
