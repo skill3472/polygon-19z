@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,6 +10,13 @@ public class PlayerManager : MonoBehaviour
 {
     private bool isMeele = true;
     private float horizontalAxis;
+
+    public void AddCoin(int v)
+    {
+        coins += v;
+        GameObject.FindGameObjectWithTag("Coins").GetComponent<Text>().text = coins.ToString();
+    }
+
     private float verticalAxis;
     [HideInInspector] public bool isMoving;
     //[SerializeField]private Animator anim;
@@ -17,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject[] weaponList;
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed;
+    [HideInInspector] public int coins;
 
     void Update()
     {
