@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Urn_Shatter : MonoBehaviour
 {
+    public GameObject[] loot;
+    public float[] lootChannce;
+    public int[] lootCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,6 +16,19 @@ public class Urn_Shatter : MonoBehaviour
         foreach (Rigidbody2D rb in rigidbodies)
         {
             rb.AddForce(Random.insideUnitCircle*25);
+        }
+
+        for (int i = 0; i < loot.Length; i++)
+        {
+            if (Random.Range(0f, 1f) < lootChannce[i])
+            {
+                int counter = 0;
+                while(lootCount[i] > counter)
+                {
+                    Instantiate(loot[i], transform.position, transform.rotation);
+                    counter++;
+                }
+            }
         }
 
         Destroy(gameObject, 1f);

@@ -252,6 +252,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcb7d4e892247a459371023ab44a766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loot:
+  - {fileID: 6155000492080591398, guid: ca7c23977123dfd469a002dad572abfb, type: 3}
+  lootChannce:
+  - 0.5
+  lootCount: 01000000
 --- !u!1 &4887140806840218832
 GameObject:
   m_ObjectHideFlags: 0
