@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class WeaponCollisionManager : MonoBehaviour
 {
@@ -24,9 +25,9 @@ public class WeaponCollisionManager : MonoBehaviour
          
         Attack attackScript = this.GetComponent<Attack>();
         playerManager.EnemyHit(col.gameObject, attackScript.damage);
-        if (this.CompareTag("Projectile"))
+        if (this.CompareTag("Projectile") && !col.gameObject.CompareTag("Projectile"))
         {
-            gameObject.active = false;
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }
