@@ -5,9 +5,23 @@ using UnityEngine;
 public class SwordAttack : Attack
 {
     [SerializeField] private float dashForce;
-    [SerializeField] private Collider2D swordCollider;
     [SerializeField] private float attackTime;
     private float timeToAttack;
+    private Vector3 attackScale;
+    private Vector3 idleScale;
+    private Vector3 attackPosition;
+    private Vector3 idlePosition;
+
+    void Start()
+    {
+        attackScale = gameObject.transform.localScale;
+        idleScale = new Vector3(attackScale.x, attackScale.y / 5);
+        gameObject.transform.localScale = idleScale;
+
+        attackPosition = gameObject.transform.localPosition;
+        idlePosition = new Vector3(0.04f, attackPosition.y);
+        gameObject.transform.localPosition = idlePosition;
+}
 
     public override void First()
     {
@@ -18,13 +32,16 @@ public class SwordAttack : Attack
     {
         Rigidbody2D rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * dashForce, ForceMode2D.Impulse);
+        StartCoroutine("FirstAttack");
         Debug.Log("Dashing with force: " + dashForce.ToString());
     }
 
     IEnumerator FirstAttack()
     {
-        swordCollider.offset = new Vector2(0.0f, 1.0f);
+        gameObject.transform.localScale = attackScale;
+        gameObject.transform.localPosition = attackPosition;
         yield return new WaitForSeconds(attackTime);
-        swordCollider.offset = new Vector2(0.0f, 0.0f);
+        gameObject.transform.localScale = idleScale;
+        gameObject.transform.localPosition = idlePosition;
     }
 }
