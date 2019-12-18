@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private float verticalAxis;
+    public int playerHealth = 100;
     [HideInInspector] public bool isMoving;
     //[SerializeField]private Animator anim;
     [SerializeField] private Camera cam;
@@ -26,6 +27,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed;
     [HideInInspector] public int coins;
+    [SerializeField]private GameObject gameOverPanel;
 
     void Update()
     {
@@ -39,6 +41,7 @@ public class PlayerManager : MonoBehaviour
     {
         weaponSlot = Instantiate(weaponList[0], this.gameObject.transform);
         weaponSlot.name = "0";
+        gameOverPanel.SetActive(false);
     }
 
     void WeaponSwitch()
@@ -94,6 +97,16 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Enemy was hit!");
             enemy.GetComponent<EnemyManager>().TakeDamage(damage);
+        }
+    }
+
+    public void PlayerDeath(/*Possibly add a cause of death thing later*/)
+    {
+        if(playerHealth <= 0)
+        {
+            Debug.Log("Player died.");
+            gameOverPanel.SetActive(true);
+            gameOverPanel.GetChild(0).GetComponent<Text>().text = "Player died.";
         }
     }
 }

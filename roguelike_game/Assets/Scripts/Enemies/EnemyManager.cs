@@ -43,4 +43,13 @@ public class EnemyManager : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //Thats just a quick system untill someone makes some attacks for the enemies
+    void OnCollisionEnter2D(Collider2D target)
+    {
+        if(target.gameObject.CompareTag("Player"))
+        {
+            target.gameObject.GetComponent<PlayerManager>().playerHealth -= enemyDamageOutput;
+        }
+    }
+
 }
