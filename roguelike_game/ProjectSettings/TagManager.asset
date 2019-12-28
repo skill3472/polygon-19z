@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Projectile
   - Coins
+  - UI
   layers:
   - Default
   - TransparentFX

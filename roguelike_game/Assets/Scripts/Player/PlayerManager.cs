@@ -10,31 +10,47 @@ public class PlayerManager : MonoBehaviour
 {
     private bool isMeele = true;
     private float horizontalAxis;
-
-    public void AddCoin(int v)
-    {
-        coins += v;
-        GameObject.FindGameObjectWithTag("Coins").GetComponent<Text>().text = coins.ToString();
-    }
-
     private float verticalAxis;
     public int playerHealth = 100;
-    [HideInInspector] public bool isMoving;
     //[SerializeField]private Animator anim;
     [SerializeField] private Camera cam;
-    [HideInInspector] public GameObject weaponSlot;
     [SerializeField] private GameObject[] weaponList;
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed;
+    [Header("Game Over")]
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject inventoryWindowPrefarb;
+
     [HideInInspector] public int coins;
-    [SerializeField]private GameObject gameOverPanel;
+    [HideInInspector] public GameObject weaponSlot;
+    [HideInInspector] public bool isMoving;
+    [HideInInspector] public GameObject activeWindow;
 
     void Update()
     {
-        Move();
-        Attack();
-        LookTowardsMouse();
-        WeaponSwitch();
+        WindowChecker();
+        if (activeWindow == null)
+        {
+            Move();
+            Attack();
+            LookTowardsMouse();
+            WeaponSwitch();
+        }
+    }
+
+    private void WindowChecker()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (activeWindow == null)
+            {
+                activeWindow = Instantiate(inventoryWindowPrefarb, GameObject.FindGameObjectWithTag("UI").transform);
+            } else
+            {
+                Destroy(activeWindow);
+            }
+
+        }
     }
 
     void Start()
@@ -106,7 +122,13 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Player died.");
             gameOverPanel.SetActive(true);
-            gameOverPanel.GetChild(0).GetComponent<Text>().text = "Player died.";
+            gameOverPanel.transform.GetChild(0).GetComponent<Text>().text = "Player died.";
         }
+    }
+
+    public void AddCoin(int v)
+    {
+        coins += v;
+        GameObject.FindGameObjectWithTag("Coins").GetComponent<Text>().text = coins.ToString();
     }
 }
