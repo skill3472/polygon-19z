@@ -44,7 +44,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     //Thats just a quick system untill someone makes some attacks for the enemies
-    void OnCollisionEnter2D(Collider2D target)
+    void OnCollisionEnter2D(Collision2D target)
     {
         if(target.gameObject.CompareTag("Player"))
         {
