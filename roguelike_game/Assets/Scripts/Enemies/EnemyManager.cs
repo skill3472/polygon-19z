@@ -48,7 +48,7 @@ public class EnemyManager : MonoBehaviour
     {
         if(target.gameObject.CompareTag("Player"))
         {
-            target.gameObject.GetComponent<PlayerManager>().playerHealth -= enemyDamageOutput;
+            target.gameObject.GetComponent<PlayerManager>().ChangeHp(-enemyDamageOutput);
         }
     }
 

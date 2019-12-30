@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Coins
   - UI
+  - Hp
   layers:
   - Default
   - TransparentFX

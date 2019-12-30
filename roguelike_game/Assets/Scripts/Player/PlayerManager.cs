@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     private bool isMeele = true;
     private float horizontalAxis;
     private float verticalAxis;
-    public int playerHealth = 100;
+    private int playerHealth = 100;
     //[SerializeField]private Animator anim;
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject[] weaponList;
@@ -130,5 +130,11 @@ public class PlayerManager : MonoBehaviour
     {
         coins += v;
         GameObject.FindGameObjectWithTag("Coins").GetComponent<Text>().text = coins.ToString();
+    }
+
+    public void ChangeHp(int v)
+    {
+        playerHealth += v;
+        GameObject.FindGameObjectWithTag("Hp").GetComponent<Text>().text = playerHealth.ToString();
     }
 }
