@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2107298903635708579}
   m_Layer: 0
   m_Name: Jumping Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1
-  movementSpeed: 3
+  movementSpeed: 4
   safePlayerDistance: 0
-  detectionPlayerDistance: 4
+  detectionPlayerDistance: 6
   rb: {fileID: 2107298903635708576}

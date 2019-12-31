@@ -20,9 +20,11 @@ public class JumpingEnemyManager : BaseEnemyAi
     protected override void Behavior()
     {
         time = time + Time.deltaTime;
-        if (time > 2f) {
+        if (time > 1.25f) {
             time = 0f;
-            Vector2 dist = (transform.position - targetPlayer.position) * movementSpeed * 100;
+            Vector2 dist = (transform.position - targetPlayer.position);
+            dist.Normalize();
+            dist = dist * movementSpeed * 150;
 
             if (detectionPlayerDistance > Vector3.Distance(transform.position, targetPlayer.position))
             {
@@ -39,7 +41,7 @@ public class JumpingEnemyManager : BaseEnemyAi
             else
             {
                 {
-                    rb.AddForce(Random.insideUnitCircle * movementSpeed * 100);
+                    rb.AddForce(Random.insideUnitCircle * movementSpeed * 150);
                 }
             }
         }
