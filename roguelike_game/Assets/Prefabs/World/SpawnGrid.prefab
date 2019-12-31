@@ -732,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList:
   - {fileID: 8305219239286891280, guid: b929f85ce0ca94346946850206c618a2, type: 3}
+  - {fileID: 2107298903635708574, guid: dbfe77e51904fe542ad3a187bf419aad, type: 3}
   itemList:
   - {fileID: 2783505953410511279, guid: 451399b2b9a3e6341a994aa871f8aa47, type: 3}
 --- !u!1 &3643839418374089555
