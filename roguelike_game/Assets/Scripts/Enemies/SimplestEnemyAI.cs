@@ -20,7 +20,8 @@ public class SimplestEnemyAI : BaseEnemyAi
         else
         {
             projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
-            projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.MoveTowards(transform.position, targetPlayer.position, 10f).Normalize() * projectileSpeed);
+            projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.MoveTowards(transform.position, targetPlayer.position, 10f) * projectileSpeed);
+            projectile.GetComponent<EnemyProjectileManager>().damage = gameObject.GetComponent<EnemyManager>().enemyDamageOutput;
         }
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Coins
   - UI
   - Hp
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
