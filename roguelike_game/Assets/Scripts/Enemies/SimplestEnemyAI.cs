@@ -25,7 +25,7 @@ public class SimplestEnemyAI : BaseEnemyAi
             {
                 lastProjectileAttackTime = Time.time;
                 projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
-                projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.MoveTowards(gameObject.transform.position, targetPlayer.position, 10f).normalized * projectileSpeed);
+                projectile.GetComponent<Rigidbody2D>().AddForce((targetPlayer.position - transform.position).normalized * projectileSpeed);
                 projectile.GetComponent<EnemyProjectileManager>().damage = gameObject.GetComponent<EnemyManager>().enemyDamageOutput;
             }
         }
