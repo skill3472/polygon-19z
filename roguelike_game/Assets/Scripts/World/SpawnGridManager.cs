@@ -16,17 +16,20 @@ public class SpawnGridManager : MonoBehaviour
         {
             int x = Random.Range(0, 13);
             int y = Random.Range(0, 7);
-            int chance = Random.Range(0, 4);
+            int chance = Random.Range(0, 6);
             if (grid[x,y] == 0)
             {
-                if (chance > 1)
+                if (chance < 3)
                 {
                     Instantiate(enemyList[0], this.transform.GetChild(x).transform.GetChild(y));
-                } else
+                } else if(chance < 4)
                 {
                     Instantiate(enemyList[1], this.transform.GetChild(x).transform.GetChild(y));
+                } else
+                {
+                    Instantiate(enemyList[2], this.transform.GetChild(x).transform.GetChild(y));
                 }
-                
+
                 grid[x, y] = 1;
             }
 
