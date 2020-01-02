@@ -7,6 +7,8 @@ public class SimplestEnemyAI : BaseEnemyAi
 {
     [SerializeField]private GameObject projectilePrefab;
     [SerializeField]private float projectileSpeed;
+    [SerializeField] private float projectileRate;
+    private float lastProjectileAttackTime;
 
     protected override void Behavior()
     {
@@ -19,9 +21,13 @@ public class SimplestEnemyAI : BaseEnemyAi
             transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, -step);
         else
         {
-            projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
-            projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.MoveTowards(transform.position, targetPlayer.position, 10f) * projectileSpeed);
-            projectile.GetComponent<EnemyProjectileManager>().damage = gameObject.GetComponent<EnemyManager>().enemyDamageOutput;
+            if (Time.time > lastProjectileAttackTime + projectileRate)
+            {
+                lastProjectileAttackTime = Time.time;
+                projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+                projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.MoveTowards(gameObject.transform.position, targetPlayer.position, 10f).normalized * projectileSpeed);
+                projectile.GetComponent<EnemyProjectileManager>().damage = gameObject.GetComponent<EnemyManager>().enemyDamageOutput;
+            }
         }
     }
 }

@@ -103,7 +103,8 @@ MonoBehaviour:
   rb: {fileID: 8305219239286891282}
   projectilePrefab: {fileID: 3773241768784238909, guid: 7b09b32dd2169284bb48018df49aff98,
     type: 3}
-  projectileSpeed: 400
+  projectileSpeed: 100
+  projectileRate: 0.4
 --- !u!114 &2055228739713500099
 MonoBehaviour:
   m_ObjectHideFlags: 0

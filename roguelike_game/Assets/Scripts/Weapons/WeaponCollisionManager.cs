@@ -17,8 +17,7 @@ public class WeaponCollisionManager : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
 		Attack attackScript = this.GetComponent<Attack>();
-        if(attackScript.lastAttackTime == null
-		|| attackScript.lastAttackTime <= Time.time + attackScript.attackRate)
+        if (Time.time > attackScript.lastAttackTime + attackScript.attackRate)
 		{
 			attackScript.lastAttackTime = Time.time;
         	playerManager.EnemyHit(col.gameObject, attackScript.damage);
