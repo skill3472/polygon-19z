@@ -6,7 +6,7 @@ public abstract class Attack : MonoBehaviour
     public string damageType;
     public float attackRate;
     public bool malee;
-    public float timeLeftToAttack;
+    public float lastAttackTime;
 
     public abstract void First();
     public abstract void Second();
