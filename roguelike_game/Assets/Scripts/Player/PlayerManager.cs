@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour
             LookTowardsMouse();
             WeaponSwitch();
         }
+        PlayerDeath();
     }
 
     private void WindowChecker()
@@ -122,7 +123,7 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Player died.");
             gameOverPanel.SetActive(true);
-            gameOverPanel.transform.GetChild(0).GetComponent<Text>().text = "Player died.";
+            gameOverPanel.transform.GetChild(0).GetComponent<Text>().text = "You died...";
         }
     }
 
