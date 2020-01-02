@@ -11,7 +11,7 @@ public class SimplestEnemyAI : BaseEnemyAi
     protected override void Behavior()
     {
  		float step = movementSpeed * Time.deltaTime;
-        private GameObject projectile;
+        GameObject projectile;
 
         if(Vector3.Distance(transform.position, targetPlayer.position) > safePlayerDistance && detectionPlayerDistance > Vector3.Distance(transform.position, targetPlayer.position))
             transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, step);
