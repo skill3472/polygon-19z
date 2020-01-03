@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
-  movementSpeed: 5
+  movementSpeed: 3.5
   safePlayerDistance: 5
   detectionPlayerDistance: 7
   rb: {fileID: 8305219239286891282}

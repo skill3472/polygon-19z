@@ -12,22 +12,32 @@ public class SimplestEnemyAI : BaseEnemyAi
 
     protected override void Behavior()
     {
- 		float step = movementSpeed * Time.deltaTime;
-        GameObject projectile;
+        float step = movementSpeed * Time.deltaTime;
 
-        if(Vector3.Distance(transform.position, targetPlayer.position) > safePlayerDistance && detectionPlayerDistance > Vector3.Distance(transform.position, targetPlayer.position))
+        if (Vector3.Distance(transform.position, targetPlayer.position) > safePlayerDistance 
+            && detectionPlayerDistance > Vector3.Distance(transform.position, targetPlayer.position))
+        {
             transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, step);
-        else if(Vector3.Distance(transform.position, targetPlayer.position) < safePlayerDistance - 0.2f)
+        }
+        else if (Vector3.Distance(transform.position, targetPlayer.position) < safePlayerDistance - 0.2f)
+        {
             transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, -step);
+            shootAtPlayer(2);
+        }
         else
         {
-            if (Time.time > lastProjectileAttackTime + projectileRate)
-            {
-                lastProjectileAttackTime = Time.time;
-                projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
-                projectile.GetComponent<Rigidbody2D>().AddForce((targetPlayer.position - transform.position).normalized * projectileSpeed);
-                projectile.GetComponent<EnemyProjectileManager>().damage = gameObject.GetComponent<EnemyManager>().enemyDamageOutput;
-            }
+            shootAtPlayer(1);
+        }
+    }
+    private void shootAtPlayer(int slowMultiplayer)
+    {
+        if (Time.time > lastProjectileAttackTime + projectileRate * slowMultiplayer)
+        {
+            lastProjectileAttackTime = Time.time;
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            projectile.GetComponent<Rigidbody2D>().AddForce((targetPlayer.position - transform.position).normalized * projectileSpeed);
+            projectile.GetComponent<EnemyProjectileManager>().damage = gameObject.GetComponent<EnemyManager>().enemyDamageOutput;
+            Destroy(projectile, 2.75f);
         }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8990632505426856993}
   m_Layer: 0
   m_Name: Running Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3720864837856728397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,14 +97,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.5
+  m_AngularDrag: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &3174083346789225524
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.3
 --- !u!114 &-7022560344009278237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +136,9 @@ MonoBehaviour:
   enemyHealth: 8
   enemyDamageOutput: 3
   damageFlashDuration: 1
-  enemyNormalSprite: {fileID: 0}
-  enemyFlashingSprite: {fileID: 0}
+  enemyNormalSprite: {fileID: 21300000, guid: 7565a0e6495f5d34cab8e8def3eec51f, type: 3}
+  enemyFlashingSprite: {fileID: 21300000, guid: 7565a0e6495f5d34cab8e8def3eec51f,
+    type: 3}
   deathPrefarb: {fileID: 0}
   damageFlashTimer: 0
 --- !u!114 &8990632505426856993
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
-  movementSpeed: 5
+  movementSpeed: 4.5
   safePlayerDistance: 0
   detectionPlayerDistance: 3
   rb: {fileID: -937258126577677719}
