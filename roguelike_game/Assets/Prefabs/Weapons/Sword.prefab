@@ -136,8 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageType: cut
-  attackRate: 1
+  attackRate: 0.5
   malee: 1
+  lastAttackTime: 0
   dashForce: 100
   attackTime: 0.3
 --- !u!114 &7403984629230142040

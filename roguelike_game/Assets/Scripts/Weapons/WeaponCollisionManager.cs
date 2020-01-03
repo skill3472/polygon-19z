@@ -17,11 +17,7 @@ public class WeaponCollisionManager : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
 		Attack attackScript = this.GetComponent<Attack>();
-        if (Time.time > attackScript.lastAttackTime + attackScript.attackRate)
-		{
-			attackScript.lastAttackTime = Time.time;
-        	playerManager.EnemyHit(col.gameObject, attackScript.damage);
-		}
+        playerManager.EnemyHit(col.gameObject, attackScript.damage);
         if (this.CompareTag("Projectile") && !col.gameObject.CompareTag("Projectile"))
         {
         	gameObject.SetActive(false);

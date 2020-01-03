@@ -25,19 +25,25 @@ public class SwordAttack : Attack
 
     public override void First()
     {
-        StartCoroutine("FirstAttack");
+        if (Time.time > lastAttackTime + attackRate)
+        {
+            StartCoroutine("FirstAttack");
+        }
     }
 
     public override void Second()
     {
-        Rigidbody2D rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * dashForce, ForceMode2D.Impulse);
-        StartCoroutine("FirstAttack");
-        Debug.Log("Dashing with force: " + dashForce.ToString());
+        if (Time.time > lastAttackTime + attackRate * 3)
+        {
+            Rigidbody2D rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+            rb.AddForce(transform.up * dashForce, ForceMode2D.Impulse);
+            StartCoroutine("FirstAttack");
+        }
     }
 
     IEnumerator FirstAttack()
     {
+        lastAttackTime = Time.time;
         gameObject.transform.localScale = attackScale;
         gameObject.transform.localPosition = attackPosition;
         yield return new WaitForSeconds(attackTime);
