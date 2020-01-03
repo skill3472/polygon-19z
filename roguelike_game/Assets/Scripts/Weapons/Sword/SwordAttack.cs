@@ -43,11 +43,13 @@ public class SwordAttack : Attack
 
     IEnumerator FirstAttack()
     {
+        gameObject.GetComponent<Collider2D>().isTrigger = true;
         lastAttackTime = Time.time;
         gameObject.transform.localScale = attackScale;
         gameObject.transform.localPosition = attackPosition;
         yield return new WaitForSeconds(attackTime);
         gameObject.transform.localScale = idleScale;
         gameObject.transform.localPosition = idlePosition;
+        gameObject.GetComponent<Collider2D>().isTrigger = false;
     }
 }

@@ -8,6 +8,15 @@ public class PortalManager : MonoBehaviour
     public GameObject room2;
     public Sprite activePortal;
     public Sprite closedPortal;
+    private GameObject mainCamera;
+    private GameObject player;
+
+    private void Start()
+    {
+        mainCamera = GameObject.Find("Main Camera");
+        player = GameObject.Find("Player");
+    }
+
 
     public void ActivatePortal()
     {
@@ -25,21 +34,20 @@ public class PortalManager : MonoBehaviour
     {   
         if ((other.Equals(GameObject.Find("Player").GetComponent<Collider2D>()) && room1 != null && room2 != null))
         {
-            Debug.Log("Player Enter Portal");
-            GameObject camera = GameObject.Find("Main Camera");
-            if (camera.transform.position.x.Equals(room1.transform.position.x) && camera.transform.position.y.Equals(room1.transform.position.y))
+            
+            if (mainCamera.transform.position.x.Equals(room1.transform.position.x) && mainCamera.transform.position.y.Equals(room1.transform.position.y))
             {
-                camera.transform.position = Vector3.Lerp(camera.transform.position, new Vector3(room2.transform.position.x, room2.transform.position.y, camera.transform.position.z), 3f);
-                GameObject.Find("Player").transform.position = new Vector2(room2.transform.position.x, room2.transform.position.y);
+                PlayerGoToRoom(room2);
             } else
             {
-                camera.transform.position = Vector3.Lerp(camera.transform.position, new Vector3(room1.transform.position.x, room1.transform.position.y, camera.transform.position.z), 3f);
-                GameObject.Find("Player").transform.position = new Vector2(room1.transform.position.x, room1.transform.position.y);
+                PlayerGoToRoom(room1);
             }
-            
-
-
         }
-        
+    }
+
+    private void PlayerGoToRoom(GameObject room)
+    {
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, new Vector3(room.transform.position.x, room.transform.position.y, mainCamera.transform.position.z), 3f);
+        player.transform.position = new Vector2(room.transform.position.x, room.transform.position.y);
     }
 }
