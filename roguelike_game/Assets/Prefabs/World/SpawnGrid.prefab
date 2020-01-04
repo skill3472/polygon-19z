@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643839417779538055}
   m_Layer: 0
-  m_Name: Spawn_7_3
+  m_Name: Spawn_6_3
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,7 +903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643839418488760227}
   m_Layer: 0
-  m_Name: Spawn_7_6
+  m_Name: Spawn_6_6
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1150,7 +1150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643839418608717527}
   m_Layer: 0
-  m_Name: Spawn_7_1
+  m_Name: Spawn_6_1
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1180,7 +1180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643839418609990892}
   m_Layer: 0
-  m_Name: Spawn_7_5
+  m_Name: Spawn_6_5
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1270,7 +1270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643839418725327751}
   m_Layer: 0
-  m_Name: Spawn_7_4
+  m_Name: Spawn_6_4
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2909,7 +2909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643839419665916800}
   m_Layer: 0
-  m_Name: Spawn_7_2
+  m_Name: Spawn_6_2
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

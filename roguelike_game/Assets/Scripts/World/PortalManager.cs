@@ -48,6 +48,31 @@ public class PortalManager : MonoBehaviour
     private void PlayerGoToRoom(GameObject room)
     {
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, new Vector3(room.transform.position.x, room.transform.position.y, mainCamera.transform.position.z), 3f);
-        player.transform.position = new Vector2(room.transform.position.x, room.transform.position.y);
+
+        if (gameObject.name.Equals("Portal_top"))
+        {
+            Transform gridPos = room.transform.Find("SpawnGrid").GetChild(6).GetChild(6);
+            player.transform.position = new Vector2(gridPos.position.x, gridPos.position.y);
+        }
+        else if (gameObject.name.Equals("Portal_bottom"))
+        {
+            Transform gridPos = room.transform.Find("SpawnGrid").GetChild(6).GetChild(0);
+            player.transform.position = new Vector2(gridPos.position.x, gridPos.position.y);
+        }
+        else if (gameObject.name.Equals("Portal_right"))
+        {
+            Transform gridPos = room.transform.Find("SpawnGrid").GetChild(0).GetChild(3);
+            player.transform.position = new Vector2(gridPos.position.x, gridPos.position.y);
+        }
+        else if (gameObject.name.Equals("Portal_left"))
+        {
+            Transform gridPos = room.transform.Find("SpawnGrid").GetChild(12).GetChild(3);
+            player.transform.position = new Vector2(gridPos.position.x, gridPos.position.y);
+        }
+        else
+        {
+            player.transform.position = new Vector2(room.transform.position.x, room.transform.position.y);
+        }
+        
     }
 }

@@ -97,8 +97,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.5
+  m_AngularDrag: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -117,14 +117,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97713488965528641923ee0f32085c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoving: 0
   cam: {fileID: 0}
-  weaponSlot: {fileID: 0}
   weaponList:
   - {fileID: 1823346912244315666, guid: 8142158358142ee47a5d611597e30b6c, type: 3}
   - {fileID: 4289388930498920424, guid: 3c9e2220711f4274eb2d0a7fe8cb7adf, type: 3}
   movementSpeed: 5
+  gameOverPanel: {fileID: 0}
+  inventoryWindowPrefarb: {fileID: 0}
   coins: 0
+  weaponSlot: {fileID: 0}
+  isMoving: 0
+  activeWindow: {fileID: 0}
 --- !u!58 &5778821923554844068
 CircleCollider2D:
   m_ObjectHideFlags: 0
