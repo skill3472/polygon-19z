@@ -25,7 +25,8 @@ public class Urn_Shatter : MonoBehaviour
                 int counter = 0;
                 while(lootCount[i] > counter)
                 {
-                    Instantiate(loot[i], transform.position, transform.rotation);
+                    GameObject obj = Instantiate(loot[i], transform.position, transform.rotation);
+                    obj.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle * 45);
                     counter++;
                 }
             }

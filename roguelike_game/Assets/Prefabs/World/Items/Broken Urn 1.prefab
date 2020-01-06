@@ -254,9 +254,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loot:
   - {fileID: 6155000492080591398, guid: ca7c23977123dfd469a002dad572abfb, type: 3}
+  - {fileID: 7062203463733649975, guid: ca7e904855c2d7241b6658918d83495b, type: 3}
   lootChannce:
   - 0.5
-  lootCount: 01000000
+  - 0.1
+  lootCount: 0100000001000000
 --- !u!1 &4887140806840218832
 GameObject:
   m_ObjectHideFlags: 0
