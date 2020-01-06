@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     private float horizontalAxis;
     private float verticalAxis;
     private int playerHealth = 100;
+    private int playerMaxHealth = 100;
     //[SerializeField]private Animator anim;
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject[] weaponList;
@@ -136,6 +137,10 @@ public class PlayerManager : MonoBehaviour
     public void ChangeHp(int v)
     {
         playerHealth += v;
+        if (playerHealth > playerMaxHealth)
+        {
+            playerHealth = playerMaxHealth;
+        }
         GameObject.FindGameObjectWithTag("Hp").GetComponent<Text>().text = playerHealth.ToString();
     }
 }
